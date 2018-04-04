@@ -45,6 +45,7 @@
 
 section{
   background: #eeeeee;
+  height: calc(100vh - 50px);
 }
 
 .main{
@@ -78,15 +79,44 @@ section{
 }
 
 .city-menu__button:hover{
-  color: #f89600;
+    color: #f89600;
 }
 
 .weather{
   display: flex;
   width: 70%;
-  padding: 0 15px;
   flex-direction: column;
-  align-items: center;
   box-shadow: 2px 2px 4px lightgrey;
   background: white;
+  margin: 0 15px;
+}
+
+.weather__header{
+    display: flex;
+    justify-content: space-between;
+    padding: 1px 15px;
+    border-bottom: 1px solid lightgray;
+    align-items: center;
+    font-size: 22px;
+}
+
+.weather__city{
+    text-transform: uppercase;
+    color: #f89600;
+}
+
+.weather__data{
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    font-size: 18px;
+}
+
+.weather__temp{
+    display: flex;
+    flex-direction: column;
+}
+
+.weather__temp span{
+    padding-left: 20px;
 }

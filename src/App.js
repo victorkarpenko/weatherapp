@@ -3,6 +3,7 @@ import './App.css';
 import {Header} from "./components/header";
 import {WeatherDisplay} from "./components/weatherDisplay";
 import {PLACES} from "./components/weatherDisplay";
+import {CityMenu} from "./components/cityMenu";
 
 class App extends Component {
     constructor() {
@@ -10,6 +11,12 @@ class App extends Component {
         this.state = {
             activePlace: 0,
         };
+
+        this.menuBtnClickHandler = this.menuBtnClickHandler.bind(this);
+    }
+
+    menuBtnClickHandler(props){
+        this.setState({activePlace: props.actPlace});
     }
 
     render() {
@@ -20,20 +27,7 @@ class App extends Component {
                 <section>
                     <div className="container">
                         <div className="row main">
-                            <nav className="city-menu">
-                                <span className="city-menu__title">My Cities</span>
-                                {PLACES.map((place, index) => (
-                                    <button
-                                        className="city-menu__button"
-                                        key={index}
-                                        onClick={() => {
-                                            this.setState({activePlace: index});
-                                        }}
-                                    >
-                                        {place.name}
-                                    </button>
-                                ))}
-                            </nav>
+                            <CityMenu activeBtn={PLACES[0].zip} btnClickHandler={this.menuBtnClickHandler}/>
                             <WeatherDisplay key={activePlace} zip={PLACES[activePlace].zip}/>
                         </div>
                     </div>

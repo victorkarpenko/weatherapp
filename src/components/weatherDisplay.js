@@ -27,19 +27,30 @@ export class WeatherDisplay extends Component {
 
     render() {
         const weatherData = this.state.weatherData;
-        if (!weatherData) return <div>Loading</div>;
+        if (!weatherData) return <div className="weather">Loading</div>;
         const weather = weatherData.weather[0];
         const iconUrl = "http://openweathermap.org/img/w/" + weather.icon + ".png";
         return (
             <div className="weather">
-                <h1>
-                    {weather.main} in {weatherData.name}
-                    <img src={iconUrl} alt={weatherData.description}/>
-                </h1>
-                <p>Current: {weatherData.main.temp}°</p>
-                <p>High: {weatherData.main.temp_max}°</p>
-                <p>Low: {weatherData.main.temp_min}°</p>
-                <p>Wind Speed: {weatherData.wind.speed} mi/hr</p>
+                <div className="weather__header">
+                    <div>
+                        <span className="weather__status">{weather.main} in </span>
+                        <span className="weather__city">{weatherData.name}</span>
+                    </div>
+                    <img className="weather__status-img" src={iconUrl} alt={weatherData.description}/>
+                </div>
+                <div className="weather__data">
+                    <div className="weather__temp">
+                        Temperature:
+                        <span>Current: {weatherData.main.temp}°</span>
+                        <span>High: {weatherData.main.temp_max}°</span>
+                        <span>Low: {weatherData.main.temp_min}°</span>
+                    </div>
+                    <span>Humidity: {weatherData.main.humidity} %</span>
+                    <span>Pressure: {weatherData.main.pressure} mm Hg</span>
+                    <span>Wind Speed: {weatherData.wind.speed} mi/hr</span>
+
+                </div>
             </div>
         );
     }
