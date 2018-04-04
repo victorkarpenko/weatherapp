@@ -8,7 +8,7 @@ export class CityMenu extends Component{
             <nav className="city-menu">
                 <span className="city-menu__title">My Cities</span>
                 {PLACES.map((place, index) => (
-                    <Button activeBtn={this.state.activeBtn} name={place.name} key={index} actPlace={index} clickHandler={this.props.btnClickHandler}/>
+                    <Button activeBtn={false} name={place.name} key={index} actPlace={index} clickHandler={this.props.btnClickHandler}/>
                 ))}
             </nav>
         )
