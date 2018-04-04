@@ -22,7 +22,6 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 0 15px;
 }
 
 .header__title{
@@ -119,4 +118,34 @@ section{
 
 .weather__temp span{
     padding-left: 20px;
+}
+
+@media (max-width: 1199px){
+    .container{
+        width: 970px;
+    }
+}
+
+@media (max-width: 991px){
+    .container{
+        width: 740px;
+    }
+}
+
+@media (max-width: 767px){
+    .container{
+        width: 100%;
+    }
+}
+
+@media (max-width: 576px){
+    .city-menu, .weather{
+        width: calc(100% - 30px);
+        margin: 15px;
+    }
+
+    .row.main{
+        flex-direction: column;
+    }
+
 }
